@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1061243655864",
+    "firebase_url": "https://bartender-97336.firebaseio.com",
+    "project_id": "bartender-97336",
+    "storage_bucket": "bartender-97336.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061243655864:android:6b5c45d461c4ee8cf6c64d",
+        "android_client_info": {
+          "package_name": "com.bartender"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1061243655864-4aco5tmbgimfm28smq86kgd220kn9625.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC86uFMQXcJrQXtdABcmXjp1GSvpQWVJFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1061243655864-4aco5tmbgimfm28smq86kgd220kn9625.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
