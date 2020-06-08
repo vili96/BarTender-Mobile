@@ -1,8 +1,10 @@
-package com.bartender;
+package com.bartender.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.bartender.R;
 
 public class MainActivity extends AppCompatActivity
 {
