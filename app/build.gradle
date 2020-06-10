@@ -29,6 +29,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'com.google.firebase:firebase-analytics:17.2.2'
     implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
+    implementation 'com.google.firebase:firebase-auth:19.3.1'
+    implementation 'com.google.firebase:firebase-firestore:21.4.3'
     // add SDKs for any other desired Firebase products
     //https://firebase.google.com/docs/android/setup#available-libraries
 

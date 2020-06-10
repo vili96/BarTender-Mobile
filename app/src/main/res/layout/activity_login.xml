@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -22,7 +22,7 @@
             android:textSize="26sp" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -32,6 +32,7 @@
             android:textSize="26sp" />
 
         <Button
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -39,11 +40,13 @@
             android:textSize="24sp" />
 
         <TextView
+            android:id="@+id/registerLink"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:layout_marginTop="15dp"
             android:gravity="start"
+            android:clickable="true"
             android:text="New here? Create and account >"
             android:textAlignment="center" />
     </LinearLayout>
