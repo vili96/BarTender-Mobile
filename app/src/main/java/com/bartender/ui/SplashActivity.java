@@ -5,10 +5,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bartender.R;
 import com.bartender.ui.login.LoginActivity;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +22,7 @@ public class SplashActivity extends AppCompatActivity
 {
     private static final int splashTimeOut = 3000;
     TextView logo;
+    ImageView layout;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
     @Override
@@ -24,6 +30,12 @@ public class SplashActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        layout = findViewById(R.id.layoutSplash);
+        GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(layout);
+
+        Glide.with(this)
+                .load(R.drawable.intro)
+                .into(imageViewTarget);
 
         Animation splashAnimation = AnimationUtils.loadAnimation(this, R.anim.splash_animation);
         logo = findViewById(R.id.logo);

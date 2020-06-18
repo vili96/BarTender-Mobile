@@ -9,17 +9,9 @@ public class User
 {
     private String id;
     private String email;
-    private String barId;
     private int roleId;
 
     public User() {}
-
-    public User(String id, String email, String barId, int roleId) {
-        this.id = id;
-        this.email = email;
-        this.barId = barId;
-        this.roleId = roleId;
-    }
 
     public User(String id, String email, int roleId) {
         this.id = id;
@@ -43,14 +35,6 @@ public class User
         this.email = email;
     }
 
-    public String getBarId() {
-        return barId;
-    }
-
-    public void setBarId(String barId) {
-        this.barId = barId;
-    }
-
     public int getRoleId() {
         return roleId;
     }
@@ -66,8 +50,7 @@ public class User
         User user = (User) o;
         return roleId == user.roleId &&
                 id.equals(user.id) &&
-                email.equals(user.email) &&
-                Objects.equals(barId, user.barId);
+                email.equals(user.email);
     }
 
     @Override
@@ -80,7 +63,6 @@ public class User
         return "User{" +
                 "id='" + id + '\'' +
                 ", email='" + email + '\'' +
-                ", barId='" + barId + '\'' +
                 ", roleId=" + roleId +
                 '}';
     }

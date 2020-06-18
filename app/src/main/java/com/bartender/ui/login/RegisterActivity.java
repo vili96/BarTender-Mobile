@@ -56,39 +56,37 @@ public class RegisterActivity extends AppCompatActivity
     {
         if (!ValidationUtils.validateTextField(password.getText()) ||
                 !ValidationUtils.validateTextField(email.getText()) ||
-                !ValidationUtils.validateTextField(passwordRepeated.getText())){
+                !ValidationUtils.validateTextField(passwordRepeated.getText())) {
 
             Toast.makeText(RegisterActivity.this, "All fields required!", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if (password.getText().toString().length() < 6){
+        if (password.getText().toString().length() < 6) {
 
             Toast.makeText(RegisterActivity.this, "The password should contain minimum 6 symbols", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if (passwordRepeated.getText().toString().equals(password.getText().toString())) {
-            firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>()
+
+        firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>()
+        {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task)
             {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task)
-                {
-                    if (task.isSuccessful()) {
-                        userService.createUser(firebaseAuth.getUid(), email.getText().toString());
-                        Intent mainPage = new Intent(RegisterActivity.this, MainActivity.class);
-                        finish();
-                        Toast.makeText(RegisterActivity.this, "User successfully registered!", Toast.LENGTH_LONG).show();
-                        startActivity(mainPage);
-                        LoginActivity.activity.finish(); // finish login activity on registration
-                    } else {
-                        Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                    }
+                if (task.isSuccessful()) {
+                    userService.createUser(firebaseAuth.getUid(), email.getText().toString());
+                    Intent mainPage = new Intent(RegisterActivity.this, MainActivity.class);
+                    finish();
+                    Toast.makeText(RegisterActivity.this, "User successfully registered!", Toast.LENGTH_LONG).show();
+                    startActivity(mainPage);
+                    LoginActivity.activity.finish(); // finish login activity on registration
+                } else {
+                    Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                 }
-            });
-        } else {
-            Toast.makeText(getApplicationContext(), "Passwords don't match!", Toast.LENGTH_LONG).show();
-        }
+            }
+        });
+
     }
 
 }

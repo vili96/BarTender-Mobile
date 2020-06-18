@@ -3,4 +3,29 @@
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="action_logout">Logout</string>
+    <string name="statistics">Statistics</string>
+    <string name="cocktails_tried">Collection</string>
+    <string name="consumed_today">Today\'s</string>
+    <string name="consume">Consume</string>
+    <string name="type_selection">Select consumption type</string>
+    <string name="type_neutral">Neutral</string>
+    <string name="type_bars">Bars</string>
+
+    <string name="input_name">Enter drink name&#8230;</string>
+    <string name="quantity_lbl">Quantity:</string>
+    <string name="amount_lbl">Amount:</string>
+    <string name="price_lbl">Price:</string>
+    <string name="quantity_hint">1</string>
+    <string name="currency">lv</string>
+    <string name="ml">ml.</string>
+    <string name="amount_hint">250</string>
+    <string name="price_hint">10</string>
+    <string name="alc_vol_lbl">Alcohol Volume:</string>
+    <string name="alc_vol_hint">4.5</string>
+    <string name="percent">%</string>
+    <string name="total_price_lbl">Total Price:</string>
+    <string name="total_price">Total Price: %,.2f lv.</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="loading">Loading&#8230;</string>
 </resources>

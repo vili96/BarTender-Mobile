@@ -1,22 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorSplash"
     android:orientation="horizontal"
     tools:context=".ui.SplashActivity">
 
+    <ImageView
+        android:id="@+id/layoutSplash"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/intro"
+        />
     <TextView
         android:id="@+id/logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="BarTender"
-        android:textColor="#333"
+        android:textColor="#FFF"
         android:textAlignment="center"
-        android:textSize="32sp"
+        android:layout_marginBottom="200dp"
+        android:layout_alignBottom="@id/layoutSplash"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="cursive"
+        android:textSize="58sp"
         android:textStyle="bold" />
 
-</LinearLayout>
+</RelativeLayout>

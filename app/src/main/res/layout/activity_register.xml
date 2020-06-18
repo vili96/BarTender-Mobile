@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg2"
+
     android:orientation="horizontal"
     tools:context=".ui.login.RegisterActivity">
 
@@ -47,6 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:background="@drawable/dark_button"
+            android:textColor="@color/light"
             android:text="@string/register"
             android:onClick="onRegisterClick"
             android:textSize="24sp" />
@@ -58,6 +62,7 @@
             android:layout_gravity="start"
             android:layout_marginTop="15dp"
             android:gravity="start"
+            android:textStyle="italic"
             android:text="Already registered? Login >"
             android:textAlignment="center" />
     </LinearLayout>

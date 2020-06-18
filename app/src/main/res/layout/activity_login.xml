@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg2"
     tools:context=".ui.login.LoginActivity">
 
     <LinearLayout
@@ -33,6 +34,8 @@
 
         <Button
             android:id="@+id/btnLogin"
+            android:background="@drawable/dark_button"
+            android:textColor="@color/light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -48,6 +51,7 @@
             android:gravity="start"
             android:clickable="true"
             android:text="New here? Create and account >"
+            android:textStyle="italic"
             android:textAlignment="center" />
     </LinearLayout>
 </LinearLayout>
