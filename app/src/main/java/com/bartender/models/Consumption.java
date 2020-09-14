@@ -1,11 +1,15 @@
 package com.bartender.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Date;
+import java.util.List;
 
 /**
  * Author: Velina Ilieva
  */
-public class Consumption
+public class Consumption implements Parcelable
 {
     private String id;
     private String userId;
@@ -27,6 +31,30 @@ public class Consumption
         this.quantity = quantity;
         this.currentPrice = currentPrice;
     }
+
+    protected Consumption(Parcel in)
+    {
+        id = in.readString();
+        userId = in.readString();
+        drinkId = in.readString();
+        quantity = in.readInt();
+        currentPrice = in.readDouble();
+    }
+
+    public static final Creator<Consumption> CREATOR = new Creator<Consumption>()
+    {
+        @Override
+        public Consumption createFromParcel(Parcel in)
+        {
+            return new Consumption(in);
+        }
+
+        @Override
+        public Consumption[] newArray(int size)
+        {
+            return new Consumption[size];
+        }
+    };
 
     public String getId()
     {
@@ -86,5 +114,21 @@ public class Consumption
     public void setCurrentPrice(double currentPrice)
     {
         this.currentPrice = currentPrice;
+    }
+
+    @Override
+    public int describeContents()
+    {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags)
+    {
+        dest.writeString(id);
+        dest.writeString(userId);
+        dest.writeString(drinkId);
+        dest.writeInt(quantity);
+        dest.writeDouble(currentPrice);
     }
 }

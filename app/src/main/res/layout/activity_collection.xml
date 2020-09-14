@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg2q"
     android:orientation="vertical"
     tools:context=".ui.collection.CollectionActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="30sp"
-        android:text="This is collection view"
+        android:textSize="33sp"
+        android:textStyle="italic|bold"
+        android:text="COMMING SOON..."
         android:gravity="center"/>
 </LinearLayout>

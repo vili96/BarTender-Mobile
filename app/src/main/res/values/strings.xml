@@ -5,13 +5,14 @@
     <string name="action_logout">Logout</string>
     <string name="statistics">Statistics</string>
     <string name="cocktails_tried">Collection</string>
-    <string name="consumed_today">Today\'s</string>
+    <string name="consumed_today">Consumed</string>
     <string name="consume">Consume</string>
-    <string name="type_selection">Select consumption type</string>
+    <string name="type_selection">Consumption type</string>
     <string name="type_neutral">Neutral</string>
     <string name="type_bars">Bars</string>
 
     <string name="input_name">Enter drink name&#8230;</string>
+    <string name="drinks_spinner">Select drink &#8230;</string>
     <string name="quantity_lbl">Quantity:</string>
     <string name="amount_lbl">Amount:</string>
     <string name="price_lbl">Price:</string>
@@ -25,7 +26,13 @@
     <string name="percent">%</string>
     <string name="total_price_lbl">Total Price:</string>
     <string name="total_price">Total Price: %,.2f lv.</string>
+    <string name="total_amount">Total Amount: %.0f ml.</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
     <string name="loading">Loading&#8230;</string>
+    <string name="bartenderLogo">BarTender</string>
+    <string name="spinner_default">Select drink name&#8230;</string>
+    <string name="amount_preselected">%.0f ml.</string>
+    <string name="price_predefined">%,.2f lv.</string>
+    <string name="alc_volume_predefined">%.1f %%</string>
 </resources>

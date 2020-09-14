@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:drawableStart="@drawable/email"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:textAlignment="center"
@@ -28,6 +29,7 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableStart="@drawable/pass"
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
@@ -38,6 +40,7 @@
             android:id="@+id/passwordRepeated"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableStart="@drawable/pass"
             android:ems="10"
             android:hint="Repeat Password"
             android:inputType="textPassword"
@@ -50,9 +53,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/dark_button"
-            android:textColor="@color/light"
-            android:text="@string/register"
             android:onClick="onRegisterClick"
+            android:text="@string/register"
+            android:textColor="@color/light"
             android:textSize="24sp" />
 
         <TextView
@@ -62,8 +65,9 @@
             android:layout_gravity="start"
             android:layout_marginTop="15dp"
             android:gravity="start"
-            android:textStyle="italic"
+            android:textSize="18sp"
             android:text="Already registered? Login >"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textStyle="italic" />
     </LinearLayout>
 </LinearLayout>

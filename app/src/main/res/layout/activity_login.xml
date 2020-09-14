@@ -12,34 +12,40 @@
         android:layout_gravity="center"
         android:orientation="vertical">
 
+
         <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableStart="@drawable/email"
             android:ems="10"
+            android:layout_marginStart="5dp"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:textAlignment="center"
             android:textSize="26sp" />
+
 
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:layout_marginStart="5dp"
             android:hint="Password"
+            android:drawableStart="@drawable/pass"
             android:inputType="textPassword"
             android:textAlignment="center"
             android:textSize="26sp" />
 
         <Button
             android:id="@+id/btnLogin"
-            android:background="@drawable/dark_button"
-            android:textColor="@color/light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:background="@drawable/dark_button"
             android:text="@string/login"
+            android:textColor="@color/light"
             android:textSize="24sp" />
 
         <TextView
@@ -48,10 +54,11 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:layout_marginTop="15dp"
-            android:gravity="start"
             android:clickable="true"
+            android:textSize="18sp"
+            android:gravity="start"
             android:text="New here? Create and account >"
-            android:textStyle="italic"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textStyle="italic" />
     </LinearLayout>
 </LinearLayout>

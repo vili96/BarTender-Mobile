@@ -1,9 +1,12 @@
 package com.bartender.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Author: Velina Ilieva
  */
-public class Drink
+public class Drink implements Parcelable
 {
     private String id;
     private String name;
@@ -44,6 +47,34 @@ public class Drink
         this.price = price;
         this.ordersCount = ordersCount;
     }
+
+    protected Drink(Parcel in)
+    {
+        id = in.readString();
+        name = in.readString();
+        alcVolume = in.readDouble();
+        amount = in.readDouble();
+        description = in.readString();
+        price = in.readDouble();
+        barId = in.readString();
+        ordersCount = in.readInt();
+        image = in.readString();
+    }
+
+    public static final Creator<Drink> CREATOR = new Creator<Drink>()
+    {
+        @Override
+        public Drink createFromParcel(Parcel in)
+        {
+            return new Drink(in);
+        }
+
+        @Override
+        public Drink[] newArray(int size)
+        {
+            return new Drink[size];
+        }
+    };
 
     public String getId()
     {
@@ -133,5 +164,25 @@ public class Drink
     public void setImage(String image)
     {
         this.image = image;
+    }
+
+    @Override
+    public int describeContents()
+    {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags)
+    {
+        dest.writeString(id);
+        dest.writeString(name);
+        dest.writeDouble(alcVolume);
+        dest.writeDouble(amount);
+        dest.writeString(description);
+        dest.writeDouble(price);
+        dest.writeString(barId);
+        dest.writeInt(ordersCount);
+        dest.writeString(image);
     }
 }

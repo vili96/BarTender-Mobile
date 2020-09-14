@@ -25,7 +25,7 @@ public class UserService
     public void createUser(String id, String email)
     {
         User user = new User(id, email, AppConstants.RoleConstants.USER);
-        db.collection("Users").document(user.getId()).set(user);
+        db.collection("users").document(user.getId()).set(user);
     }
 
 }

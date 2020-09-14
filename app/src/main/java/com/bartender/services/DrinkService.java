@@ -39,7 +39,7 @@ public class DrinkService
 
     public Task<DocumentSnapshot> getDrinkById(String id)
     {
-        Task<DocumentSnapshot> task = db.collection("Drinks").document(id).get();
+        Task<DocumentSnapshot> task = db.collection("drinks").document(id).get();
 
         return task;
     }

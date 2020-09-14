@@ -2,7 +2,6 @@ package com.bartender.ui;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.os.Handler;
 import android.view.Window;
 import android.widget.ImageView;
 
@@ -17,14 +16,17 @@ public class LoaderDialog
 {
     private Activity activity;
     private Dialog dialog;
+
     //..we need the context else we can not create the dialog so get context in constructor
-    public LoaderDialog(Activity activity) {
+    public LoaderDialog(Activity activity)
+    {
         this.activity = activity;
     }
 
-    public void showDialog() {
+    public void showDialog()
+    {
 
-        dialog  = new Dialog(activity);
+        dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(false);
         dialog.setContentView(R.layout.loading);
@@ -43,7 +45,8 @@ public class LoaderDialog
     }
 
     //hide the dialog when some work is done
-    public void hideDialog(){
-        dialog.dismiss();
+    public void hideDialog()
+    {
+        if (dialog != null) dialog.dismiss();
     }
 }

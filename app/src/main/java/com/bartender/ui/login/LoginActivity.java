@@ -53,30 +53,25 @@ public class LoginActivity extends AppCompatActivity
             }
         });
 
-        btnLogin.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                if (ValidationUtils.validateTextField(email.getText()) && ValidationUtils.validateTextField(password.getText())) {
-                    firebaseAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>()
+        btnLogin.setOnClickListener(v -> {
+            if (ValidationUtils.validateTextField(email.getText()) && ValidationUtils.validateTextField(password.getText())) {
+                firebaseAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>()
+                {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task)
                     {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task)
-                        {
-                            if (task.isSuccessful()) {
-                                finish();
-                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                            } else {
-                                Toast.makeText(LoginActivity.this, "Incorrect email or password", Toast.LENGTH_LONG).show();
-                            }
+                        if (task.isSuccessful()) {
+                            finish();
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Incorrect email or password", Toast.LENGTH_LONG).show();
                         }
-                    });
-                } else {
-                    Toast.makeText(LoginActivity.this, "All fields required!", Toast.LENGTH_LONG).show();
-                }
-
+                    }
+                });
+            } else {
+                Toast.makeText(LoginActivity.this, "All fields required!", Toast.LENGTH_LONG).show();
             }
+
         });
 
     }
