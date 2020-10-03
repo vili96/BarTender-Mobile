@@ -3,6 +3,9 @@
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="action_logout">Logout</string>
+    <string name="action_today">Today</string>
+    <string name="action_week_ago">A week ago</string>
+    <string name="action_month_ago">A month ago</string>
     <string name="statistics">Statistics</string>
     <string name="cocktails_tried">Collection</string>
     <string name="consumed_today">Consumed</string>
@@ -35,4 +38,14 @@
     <string name="amount_preselected">%.0f ml.</string>
     <string name="price_predefined">%,.2f lv.</string>
     <string name="alc_volume_predefined">%.1f %%</string>
+    <string name="action_clear_filter">Clear</string>
+    <string name="nav_drinks">Drinks stats</string>
+    <string name="nav_money">Money stats</string>
+    <string name="nav_pie_bars">Bars stats</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drinks_stat_title">Drinks Statistics</string>
+    <string name="money_stat_title">Money Statistics</string>
+    <string name="bars_stat_title">Bars Statistics</string>
 </resources>

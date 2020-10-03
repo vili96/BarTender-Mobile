@@ -56,6 +56,7 @@ public class NeutralConsumptionFragment extends Fragment
     private double alcVol = 0;
     private int quantity = 0;
     private String consumptionIdExtra;
+    private String drinkIdExtra;
 
     // Required empty public constructor
     public NeutralConsumptionFragment()
@@ -67,7 +68,7 @@ public class NeutralConsumptionFragment extends Fragment
         return new NeutralConsumptionFragment();
     }
 
-    public static NeutralConsumptionFragment newInstance(String name, double amount, double price, double alcVol, int quantity, String consumptionIdExtra)
+    public static NeutralConsumptionFragment newInstance(String drinkIdExtra, String name, double amount, double price, double alcVol, int quantity, String consumptionIdExtra)
     {
         NeutralConsumptionFragment fragment = new NeutralConsumptionFragment();
         Bundle args = new Bundle();
@@ -77,6 +78,7 @@ public class NeutralConsumptionFragment extends Fragment
         args.putDouble("alcVol", alcVol);
         args.putInt("quantity", quantity);
         args.putString("consumptionIdExtra", consumptionIdExtra);
+        args.putString("drinkIdExtra", drinkIdExtra);
         fragment.setArguments(args);
         return fragment;
     }
@@ -93,6 +95,7 @@ public class NeutralConsumptionFragment extends Fragment
             price = getArguments().getDouble("price");
             quantity = getArguments().getInt("quantity");
             consumptionIdExtra = getArguments().getString("consumptionIdExtra");
+            drinkIdExtra = getArguments().getString("drinkIdExtra");
         }
 
         if (getActivity() instanceof ConsumedReferenceActivity) editMode = true;
@@ -199,7 +202,8 @@ public class NeutralConsumptionFragment extends Fragment
             price = Double.parseDouble(etPrice.getText().toString());
             quantity = Integer.parseInt(etQuantity.getText().toString());
 
-            final Drink drink = new Drink(DatabaseUtils.generateId(userId), name, alcVol, amount, price, quantity);
+
+            final Drink drink = new Drink(editMode ? drinkIdExtra : DatabaseUtils.generateId(userId), name, alcVol, amount, price, quantity);
             db.collection("drinks").document(drink.getId()).set(drink).addOnSuccessListener(aVoid -> {
                 Consumption consumption = new Consumption(editMode ? consumptionIdExtra : DatabaseUtils.generateId(userId), userId, drink.getId(), new Date(), quantity, price);
                 db.collection("consumptions").document(consumption.getId()).set(consumption).addOnSuccessListener(aVoid1 -> {
@@ -255,12 +259,13 @@ public class NeutralConsumptionFragment extends Fragment
     private void goBackToMain()
     {
         assert getFragmentManager() != null;
-        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-        if (!editMode)
+        if (!editMode) {
             mainActivity.setActionBarTitle(getResources().getString(R.string.app_name));
-        else {
-            consumedReferenceActivity.finish();
+        } else {
+            consumedReferenceActivity.setActionBarTitle(getResources().getString(R.string.app_name));
         }
+        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
     }
 
 }

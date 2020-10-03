@@ -312,23 +312,23 @@ public class BarConsumptionFragment extends Fragment
         }
     };
 
-    final TextWatcher etWatcher = new TextWatcher()
-    {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after)
-        {
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count)
-        {
-        }
-
-        @Override
-        public void afterTextChanged(Editable s)
-        {
-        }
-    };
+//    final TextWatcher etWatcher = new TextWatcher()
+//    {
+//        @Override
+//        public void beforeTextChanged(CharSequence s, int start, int count, int after)
+//        {
+//        }
+//
+//        @Override
+//        public void onTextChanged(CharSequence s, int start, int before, int count)
+//        {
+//        }
+//
+//        @Override
+//        public void afterTextChanged(Editable s)
+//        {
+//        }
+//    };
 
 
     private final TextWatcher watcher = new TextWatcher()
@@ -358,14 +358,12 @@ public class BarConsumptionFragment extends Fragment
     private void goBackToMain()
     {
         assert getFragmentManager() != null;
-        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-        if (!editMode)
+        if (!editMode) {
             mainActivity.setActionBarTitle(getResources().getString(R.string.app_name));
-        else {
-//            getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-
-            consumedReferenceActivity.finish();
+        } else {
+            consumedReferenceActivity.setActionBarTitle(getResources().getString(R.string.app_name));
         }
+        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
     }
 

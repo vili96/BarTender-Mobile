@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_today"
+        android:title="@string/action_today" />
+    <item
+        android:id="@+id/action_week_ago"
+        android:title="@string/action_week_ago" />
+    <item
+        android:id="@+id/action_month_ago"
+        android:title="@string/action_month_ago" />
+    <item
+        android:id="@+id/action_all"
+        android:actionLayout="@layout/no_filter_layout"
+        android:icon="@drawable/filter"
+        android:title="@string/action_clear_filter"
+        app:showAsAction="always" />
+
+</menu>

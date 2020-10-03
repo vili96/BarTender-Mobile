@@ -2,8 +2,6 @@ package com.bartender.utils;
 
 import android.text.Editable;
 
-import io.opencensus.internal.StringUtils;
-
 /**
  * Author: Velina Ilieva
  */

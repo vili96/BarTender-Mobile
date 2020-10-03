@@ -21,6 +21,7 @@ import com.bartender.ui.consume.BarFragment;
 import com.bartender.ui.consume.NeutralConsumptionFragment;
 import com.bartender.ui.consumedreference.ConsumedReferenceActivity;
 import com.bartender.ui.login.LoginActivity;
+import com.bartender.ui.statistics.StatisticsActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -144,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements BarFragment.OnLis
         if (v.getId() == R.id.consume) {
             consumeDialog.show();
         } else if (v.getId() == R.id.consumedToday) {
-            loaderDialog.showDialog();
+//            loaderDialog.showDialog();
             ArrayList<Drink> consumedDrinks = new ArrayList<>();
 
             ArrayList<Consumption> consumptions = new ArrayList<>();
@@ -179,11 +180,11 @@ public class MainActivity extends AppCompatActivity implements BarFragment.OnLis
                                 bundle.putParcelableArrayList("consumptions", consumptions);
                                 bundle.putParcelableArrayList("consumedDrinks", consumedDrinks);
                                 consumedIntent.putExtras(bundle);
-                                final Handler handler = new Handler();
-                                handler.postDelayed(() -> {
-                                    loaderDialog.hideDialog();
+//                                final Handler handler = new Handler();
+//                                handler.postDelayed(() -> {
+//                                    loaderDialog.hideDialog();
                                     startActivity(consumedIntent);
-                                }, 1000);
+//                                }, 1000);
                             }
                         });
                     }
@@ -197,7 +198,7 @@ public class MainActivity extends AppCompatActivity implements BarFragment.OnLis
             intent = new Intent(MainActivity.this, CollectionActivity.class);
             startActivity(intent);
         } else {
-            intent = new Intent(MainActivity.this, CollectionActivity.class);
+            intent = new Intent(MainActivity.this, StatisticsActivity.class);
             startActivity(intent);
         }
     }

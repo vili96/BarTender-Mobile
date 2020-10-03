@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.consumedreference.ConsumedReferenceActivity">
+<TextView
+    android:id="@+id/filter_label"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dark_button"
+    android:textSize="24sp"
+    android:padding="5dp"
+    android:visibility="gone"
+    android:textColor="@color/light"
+    android:textAlignment="center"
+    android:layout_marginBottom="10dp">
 
-    <GridView
+</TextView>
+<androidx.recyclerview.widget.RecyclerView
         android:id="@+id/consumed_today_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:horizontalSpacing="1dp"
         android:numColumns="1"
-        android:verticalSpacing="1dp"></GridView>
+        android:verticalSpacing="1dp"></androidx.recyclerview.widget.RecyclerView>
 
-</RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
+
+    <item
+        android:id="@+id/nav_pie_bars"
+        android:icon="@drawable/pie_chart"
+        android:textSize="32sp"
+        android:title="@string/nav_pie_bars" />
+    <item
+        android:id="@+id/nav_money"
+        android:icon="@drawable/money_bag"
+        android:textSize="32sp"
+        android:title="@string/nav_money" />
+    <item
+        android:id="@+id/nav_drinks"
+        android:icon="@drawable/ic_table_black_24dp"
+        android:textSize="32sp"
+        android:title="@string/nav_drinks" />
+</menu>
