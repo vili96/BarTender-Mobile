@@ -262,7 +262,9 @@ public class ConsumedReferenceActivity extends AppCompatActivity
 
     private FirestoreRecyclerOptions<Consumption> generateOptions(Query query)
     {
-        return new FirestoreRecyclerOptions.Builder<Consumption>().setQuery(query, Consumption.class).build();
+        return new FirestoreRecyclerOptions.Builder<Consumption>()
+                .setQuery(query, Consumption.class)
+                .build();
     }
 
     @Override

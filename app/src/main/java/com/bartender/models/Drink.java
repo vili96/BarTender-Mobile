@@ -11,9 +11,7 @@ public class Drink implements Parcelable
     private String id;
     private String name;
     private double alcVolume;
-    /**
-     * In milliliters
-     */
+    /* In milliliters */
     private double amount;
     private String description;
     private double price;

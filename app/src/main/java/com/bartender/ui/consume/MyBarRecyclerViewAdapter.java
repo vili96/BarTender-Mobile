@@ -52,7 +52,7 @@ public class MyBarRecyclerViewAdapter extends RecyclerView.Adapter<MyBarRecycler
         holder.mAddressView.setText(mValues.get(position).getAddress());
 
         String imgUrl = mValues.get(position).getImage();
-        if (imgUrl != null) {
+        if (imgUrl != null && !imgUrl.isEmpty()) {
 
             Picasso.get().load(imgUrl).into(holder.mImgView);
         } else {

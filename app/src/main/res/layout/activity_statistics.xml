@@ -13,6 +13,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/init_msg_statistics"
             android:text="Your statistics"
             android:textAlignment="center"
             android:layout_gravity="center"

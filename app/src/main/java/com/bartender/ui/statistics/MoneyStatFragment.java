@@ -90,7 +90,7 @@ public class MoneyStatFragment extends Fragment
 
         //YAxisLeft
         YAxis leftAxis = barChart.getAxisLeft();
-        leftAxis.setAxisMaximum(600);
+        leftAxis.setAxisMaximum(400);
         leftAxis.setDrawGridLines(true);
         leftAxis.setGranularityEnabled(true);
         leftAxis.setValueFormatter(new ValueFormatter()

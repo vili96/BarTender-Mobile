@@ -9,7 +9,7 @@
     android:id="@+id/filter_label"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/dark_button"
+    android:background="@color/cardview_shadow_start_color"
     android:textSize="24sp"
     android:padding="5dp"
     android:visibility="gone"
