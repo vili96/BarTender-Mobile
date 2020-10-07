@@ -117,15 +117,16 @@ public class ConsumedReferenceActivity extends AppCompatActivity
                         Drink currentDrink = documentSnapshot.toObject(Drink.class);
 
                         assert currentDrink != null;
+                        String img = currentDrink.getImage();
+                        holder.ivPic.setImageResource(R.drawable.def_no_image_drink);
                         holder.tvName.setText(currentDrink.getName());
                         holder.tvAmount.setText(getString(R.string.total_amount, model.getQuantity() * currentDrink.getAmount()));
                         holder.tvPrice.setText(getString(R.string.total_price, model.getCurrentPrice() * model.getQuantity()));
-                        if (currentDrink.getImage() != null) {
+                        if (img != null) {
                             Picasso.get()
-                                    .load(currentDrink.getImage())
+                                    .load(img)
                                     .into(holder.ivPic);
                         }
-
                         holder.ibEdit.setOnClickListener(v -> {
                             if (currentDrink.getBarId() == null)
                                 getSupportFragmentManager().beginTransaction().addToBackStack(null).add(android.R.id.content,

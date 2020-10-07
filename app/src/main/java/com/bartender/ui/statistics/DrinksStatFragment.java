@@ -1,120 +1,137 @@
 package com.bartender.ui.statistics;
 
-import android.content.Context;
-import android.net.Uri;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.bartender.R;
+import com.bartender.models.Drink;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link DrinksStatFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link DrinksStatFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class DrinksStatFragment extends Fragment
 {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private OnFragmentInteractionListener mListener;
-
-    public DrinksStatFragment()
-    {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DrinksStatFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static DrinksStatFragment newInstance(String param1, String param2)
-    {
-        DrinksStatFragment fragment = new DrinksStatFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    @Nullable
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_drinks_stat, container, false);
+        Resources resource = getContext().getResources();
+        TableLayout table = view.findViewById(R.id.eventsTable);
+        List<Drink> data = getAllDrinks();
+        double totalCost = getTotalCost(data);
+        float textSizeH = 20;
+        float textSize = 18;
+
+        //create headers
+        TableRow headerRow = new TableRow(getContext());
+        headerRow.setBackgroundColor(resource.getColor(R.color.colorTableHeader));
+        TextView headerCol1 = new TextView(getContext());
+        stilyzeTableHeaderColumns(headerCol1, textSizeH, getString(R.string.drink));
+        TextView headerCol2 = new TextView(getContext());
+        stilyzeTableHeaderColumns(headerCol2, textSizeH, getString(R.string.price));
+        TextView headerCol3 = new TextView(getContext());
+        stilyzeTableHeaderColumns(headerCol3, textSizeH, getString(R.string.percent));
+        headerRow.addView(headerCol1);
+        headerRow.addView(headerCol2);
+        headerRow.addView(headerCol3);
+        table.addView(headerRow);
+
+        //populate table
+        for (int i = 0; i < data.size(); i++) {
+            Drink drink = data.get(i);
+            TableRow rowNext = new TableRow(getContext());
+            if (i % 2 == 0) {
+                rowNext.setBackgroundColor(resource.getColor(R.color.colorRowEven));
+            } else {
+                rowNext.setBackgroundColor(resource.getColor(R.color.colorRowOdd));
+            }
+            TextView activity = new TextView(getContext());
+            stilyzeTableColumns(activity, textSize, drink.getName());
+            activity.setGravity(Gravity.LEFT);
+            activity.setPadding(8, 10, 0, 10);
+            TextView cost = new TextView(getContext());
+            stilyzeTableColumns(cost, textSize, getString(R.string.actual_cost, drink.getPrice()));
+            TextView percent = new TextView(getContext());
+            stilyzeTableColumns(percent, textSize, getString(R.string.actual_percent, calculatePercentage(drink.getPrice(), totalCost)));
+            rowNext.addView(activity);
+            rowNext.addView(cost);
+            rowNext.addView(percent);
+            table.addView(rowNext);
         }
+
+        //footer
+        TableRow footerRow = new TableRow(getContext());
+        footerRow.setBackgroundColor(resource.getColor(R.color.colorTableHeader));
+        TextView footerCol1 = new TextView(getContext());
+        stilyzeTableHeaderColumns(footerCol1, textSizeH, getString(R.string.total));
+        TextView footerCol2 = new TextView(getContext());
+        stilyzeTableHeaderColumns(footerCol2, textSizeH, getString(R.string.total_cost, totalCost));
+        footerRow.addView(footerCol1);
+        footerRow.addView(footerCol2);
+        table.addView(footerRow);
+
+        return view;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
-    {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_drinks_stat, container, false);
+    private List<Drink> getAllDrinks() {
+        List<Drink> list = new ArrayList<>();
+        list.add(new Drink("a1", "Choco dream", 12, 221, 15, 1));
+        list.add(new Drink("a1", "Coco paradise", 12, 221, 5, 1));
+        list.add(new Drink("a1", "Ice Raspberry", 12, 221, 6, 1));
+        list.add(new Drink("a1", "Peachy", 12, 221, 7, 1));
+        list.add(new Drink("a1", "Mojito", 12, 221, 11, 1));
+        list.add(new Drink("a1", "Margarita", 12, 221, 15.50, 1));
+        list.add(new Drink("a1", "Mai Tai", 12, 221, 5, 1));
+        list.add(new Drink("a1", "Strawberry Pie", 12, 221, 6.80, 1));
+        list.add(new Drink("a1", "Tiger Eye", 12, 221, 10, 1));
+        list.add(new Drink("a1", "Black Russian", 12, 221, 12, 1));
+
+        return list;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri)
-    {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+    private double calculatePercentage(double currentProfit, double profitSum) {
+        return currentProfit * 100 / profitSum;
+    }
+
+    private double getTotalCost(List<Drink> data) {
+        double costSum = 0;
+        for (Drink d : data) {
+            costSum += d.getPrice();
         }
+        return costSum;
     }
 
-    @Override
-    public void onAttach(Context context)
-    {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+    private void stilyzeTableHeaderColumns(TextView headerCol1, float textSizeH, String text) {
+        int lp = 0, tp = 10, rp = 0, bp = 10;
+        headerCol1.setText(text);
+        headerCol1.setTextColor(Color.WHITE);
+        headerCol1.setTextSize(textSizeH);
+        headerCol1.setGravity(Gravity.CENTER);
+        headerCol1.setPadding(lp, tp, rp, bp);
     }
 
-    @Override
-    public void onDetach()
-    {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener
-    {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+    private void stilyzeTableColumns(TextView tableCol, float textSize, String text) {
+        int lp = 0, tp = 10, rp = 0, bp = 10;
+        tableCol.setText(text);
+        tableCol.setTextSize(textSize);
+        tableCol.setGravity(Gravity.CENTER);
+        tableCol.setPadding(lp, tp, rp, bp);
+        tableCol.setTypeface(null, Typeface.BOLD);
     }
 }

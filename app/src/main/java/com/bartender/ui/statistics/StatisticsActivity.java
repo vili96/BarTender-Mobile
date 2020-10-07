@@ -45,7 +45,7 @@ public class StatisticsActivity extends AppCompatActivity
             valuesPie.add(new PieEntry(5f, "Bushido"));
             valuesPie.add(new PieEntry(10f, "W Garden"));
             valuesPie.add(new PieEntry(2f, "Secrets"));
-            getSupportFragmentManager().beginTransaction().addToBackStack(null).add(new BarsStatFragment(valuesPie),"BARS_FRAGMENT").commit();
+            getSupportFragmentManager().beginTransaction().add(new BarsStatFragment(valuesPie),"BARS_FRAGMENT").commit();
             Fragment selectedFragment = null;
 
             switch (menuItem.getItemId()) {

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#dc5e49</color>
-    <color name="colorPrimaryDark">#9f4334</color>
+    <color name="colorPrimary">#DB7A6A</color>
+    <color name="colorPrimaryDark">#EB9587</color>
     <color name="colorAccent">#FF501A</color>
 
     <!--    Custom Colors-->
     <color name="colorSplash">#B9F6DA</color>
     <color name="light">#F0F0F0</color>
+    <color name="colorTableHeader">#61102B</color>
+    <color name="colorRowEven">#FFB380</color>
+    <color name="colorRowOdd">#FFCABD</color>
 
 </resources>
